@@ -6,15 +6,18 @@ import json
 import logging
 import random
 from pathlib import Path
+import os
+import dotenv
 
 import discord
 from discord import app_commands
 from discord.ext import commands
+from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO)
+load_dotenv()
 
 # ---------------- CONFIG (fill these) ----------------
-TOKEN = "MTUwNzE2NjM5NzcyNDEwMjY2Ng.GVN-i7.B5IjrstHd2ToLz4dC8hgS_t3wFYKZK8gP37F_o"
 GUILD_ID = 1393251883090710670  # your guild/server ID
 
 # channels
@@ -2283,7 +2286,7 @@ async def on_ready():
 
 
 async def main():
-    await bot.start(TOKEN)
+    await bot.start(os.getenv("TOKEN"))
 
 
 if __name__ == "__main__":
